@@ -1,0 +1,54 @@
+.list {
+  background-color: #eee;
+
+  .item {
+    background-color: #fff;
+    padding: 20px 30px;
+    margin-bottom: 15px;
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 26px;
+      margin-bottom: 20px;
+
+      .title {}
+    }
+
+    .commoditys {
+      .item {
+        height: 70px;
+        width: 70px;
+      }
+    }
+
+    .content {
+      font-size: 24px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+
+      .info {}
+
+      .amount {
+        font-size: 28px;
+        font-weight: 500;
+
+      }
+    }
+
+    .actions {
+      font-size: 28px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+
+      .action {
+        border: 1px solid #ddd;
+        margin-left: 40px;
+        padding: 10px 25px;
+      }
+
+    }
+  }
+}

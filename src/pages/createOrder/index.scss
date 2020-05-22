@@ -1,0 +1,100 @@
+.main {
+  font-size: 28px;
+  background-color: #eee;
+  margin-top: 30px;
+
+  .content {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 0 30px;
+
+    .commodity-name {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .commoditys {
+      border-bottom: 1px solid #eee;
+      margin-bottom: 30px;
+
+      .item {
+        margin: 10px;
+        height: 100px;
+        width: 100px;
+      }
+    }
+
+    .coupons {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+
+    .remark {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+
+    .result {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0;
+
+      .item {
+        text-align: right;
+      }
+    }
+  }
+
+  .paymentInfo {
+    background-color: #fff;
+    padding: 30px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+
+  .payment-penal {
+    background-color: #fff;
+
+    display: flex;
+    justify-content: space-between;
+
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    bottom: 0;
+    border-top: 1px solid #eee;
+
+    .summary {
+      flex-grow: 2;
+      display: flex;
+      justify-content: flex-end;
+
+      .label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .amount {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+        font-size: 36px;
+      }
+    }
+
+    .action {
+      flex-grow: 1;
+      background-color: orange;
+      font-size: 32px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

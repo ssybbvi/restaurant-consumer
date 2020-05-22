@@ -1,0 +1,76 @@
+.commoditys {
+  height: 100%;
+  overflow: scroll;
+
+
+  .commoditys-item {
+    font-size: 12px;
+    display: flex;
+
+    padding: 20px 0;
+
+    .image-panel {
+      flex-grow: 1;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .image {
+        height: 120px;
+        width: 120px;
+      }
+    }
+
+    .info-panel {
+      flex-grow: 2;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      margin-bottom: 10px;
+
+      .name {
+        word-wrap: break-word;
+        word-break: normal;
+        font-size: 28px;
+      }
+
+      .dispcription {
+        color: #ccc;
+
+        .dispcription-item {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        // text-overflow: -o-ellipsis-lastline;
+        // overflow: hidden;
+        // text-overflow: ellipsis;
+        // line-clamp: 3;
+
+      }
+
+      .price-action {
+        display: flex;
+        justify-content: space-between;
+
+        .price {
+          font-size: 34px;
+          font-weight: 500;
+        }
+
+        .action {
+          color: white;
+          background-color: orange;
+          margin-right: 50px;
+          padding: 10px 20px;
+
+
+        }
+      }
+    }
+  }
+}

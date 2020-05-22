@@ -1,0 +1,18 @@
+.tab-foot {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+
+  font-size: 18px;
+  justify-content: space-around;
+
+  border: 1px solid #eee;
+
+  .tab-foot-item {
+    display: flex;
+    align-items: center;
+
+    .name {}
+  }
+}
