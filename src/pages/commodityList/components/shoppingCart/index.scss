@@ -1,7 +1,7 @@
 .shopping-cart {
-
   background-color: white;
-
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 
   .shopping-cart-head {
     display: flex;
@@ -10,7 +10,6 @@
     font-size: 24px;
     height: 80px;
 
-    border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 
     .shopping-cart-select-penal {
@@ -52,5 +51,8 @@
     }
   }
 
-  .shopping-cart-content-penal {}
+  .shopping-cart-content-penal {
+    max-height: 60vh;
+    overflow: scroll;
+  }
 }

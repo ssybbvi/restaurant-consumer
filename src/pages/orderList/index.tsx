@@ -3,7 +3,7 @@
 import Taro, { useEffect, useContext, useReducer } from "@tarojs/taro";
 import { AtFloatLayout, AtFab, AtIcon, AtListItem, AtList } from "taro-ui";
 import { View, Image } from "@tarojs/components";
-
+import TabFoot from "../../components/tabFoot";
 import "./index.scss";
 //import { reducer } from "./reducer";
 
@@ -22,12 +22,14 @@ export const Index = () => {
   }, []);
 
   return (
-    <View>
+    <View className="main">
       <View className="list">
         <View className="item">
           <View className="top">
             <View className="title">头部文字</View>
-            <View className="status">订单状态 》</View>
+            <View className="status">
+              订单状态 <AtIcon value="chevron-right"></AtIcon>
+            </View>
           </View>
           <View className="commoditys">
             <Image
@@ -116,6 +118,9 @@ export const Index = () => {
             <View className="action">动作C</View>
           </View>
         </View>
+      </View>
+      <View className="tab-foot-penal">
+        <TabFoot></TabFoot>
       </View>
     </View>
   );

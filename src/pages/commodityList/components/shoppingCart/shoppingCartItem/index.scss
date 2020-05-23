@@ -3,7 +3,6 @@
 
   .shopping-cart-content-item {
     display: flex;
-
     font-size: 26px;
 
     .shopping-cart-content-item-selected {
@@ -23,6 +22,9 @@
 
     .shopping-cart-content-item-commodity {
       flex-grow: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       .shopping-cart-content-item-commodity-image {
         height: 120px;
@@ -33,7 +35,8 @@
 
     .shopping-cart-content-item-content {
       flex-grow: 9;
-
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
 
 
       .shopping-cart-content-item-name {

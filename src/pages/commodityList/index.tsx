@@ -8,6 +8,7 @@ import { CommodityList } from "./components/commodityList";
 import TabFoot from "../../components/tabFoot";
 import ShoppingBar from "./components/shoppingBar";
 import ShoppingCart from "./components/shoppingCart";
+import Details from "./components/details";
 import { CommodityListContext, reducer } from "./reducer";
 
 import "./index.scss";
@@ -68,12 +69,13 @@ export const Index = () => {
             <CommodityList></CommodityList>
           </View>
         </View>
-        <View className="shopping-cart-penal">
+        {/* <View className="details-penal">
+          <Details></Details>
+        </View> */}
+        {/* <View className="shopping-cart-penal">
           <ShoppingCart></ShoppingCart>
-        </View>
-        <View className="shopping-bar-penal">
           <ShoppingBar></ShoppingBar>
-        </View>
+        </View> */}
         <View className="tab-foot-penal">
           <TabFoot></TabFoot>
         </View>
