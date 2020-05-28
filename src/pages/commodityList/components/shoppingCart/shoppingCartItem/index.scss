@@ -6,8 +6,8 @@
     font-size: 26px;
 
     .shopping-cart-content-item-selected {
-      flex-grow: 1;
-
+      flex-shrink: 0;
+      width: 100px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -21,7 +21,8 @@
     }
 
     .shopping-cart-content-item-commodity {
-      flex-grow: 2;
+      flex-shrink: 0;
+      width: 150px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -40,7 +41,7 @@
 
 
       .shopping-cart-content-item-name {
-        font-size: 30px;
+        font-size: 26px;
       }
 
       .shopping-cart-content-item-info {
@@ -55,18 +56,8 @@
           font-size: 30px;
         }
 
-        .shopping-cart-content-item-quantity {
-          display: flex;
-          justify-content: space-around;
-          width: 150px;
-
-          .shopping-cart-content-item-decrease {}
-
-          .shopping-cart-content-item-number {
-            font-size: 28px;
-          }
-
-          .shopping-cart-content-item-increment {}
+        .count-penal {
+          width: 220px;
         }
 
       }

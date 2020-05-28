@@ -1,16 +1,18 @@
 .commoditys {
-  height: 100%;
+  height: 96%;
   overflow: scroll;
 
+  margin: 20px 20px 20px 0;
 
   .commoditys-item {
     font-size: 12px;
     display: flex;
 
-    padding: 20px 0;
+    margin-bottom: 20px;
 
     .image-panel {
-      flex-grow: 1;
+      flex-shrink: 0;
+      width: 160px;
 
       display: flex;
       justify-content: center;
@@ -23,8 +25,7 @@
     }
 
     .info-panel {
-      flex-grow: 2;
-
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -34,7 +35,7 @@
       .name {
         word-wrap: break-word;
         word-break: normal;
-        font-size: 28px;
+        font-size: 24px;
       }
 
       .dispcription {
@@ -58,17 +59,45 @@
         justify-content: space-between;
 
         .price {
-          font-size: 34px;
-          font-weight: 500;
+          font-size: 32px;
+          font-weight: 350;
         }
 
         .action {
           color: white;
           background-color: orange;
-          margin-right: 50px;
-          padding: 10px 20px;
+          width: 120px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 50px;
+          border-radius: 25px;
 
+          position: relative;
 
+          .right-count {
+            color: white;
+            background-color: orange;
+
+            border: 1px solid white;
+            border-radius: 50%;
+            height: 26px;
+            width: 26px;
+
+            position: absolute;
+            right: -5px;
+            top: -15px;
+
+            font-size: 10px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
+        .count-penal {
+          width: 150px;
         }
       }
     }

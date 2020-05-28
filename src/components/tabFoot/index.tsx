@@ -19,6 +19,16 @@ const TabFoot = () => {
     //   });
   }, []);
 
+  // const goCreateOrder = () => {
+  //   Taro.setStorageSync(
+  //     "shopping-cart-items",
+  //     JSON.stringify(state.shoppingCartItems)
+  //   );
+  //   Taro.navigateTo({
+  //     url: "/pages/createOrder/index"
+  //   });
+  // };
+
   return (
     <View className="tab-foot">
       <View className="tab-foot-item">

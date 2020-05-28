@@ -1,19 +1,17 @@
-/* eslint-disable jsx-quotes */
-// eslint-disable-next-line no-unused-vars
 import Taro from "@tarojs/taro";
-// eslint-disable-next-line no-unused-vars
 
 export type StateType = {
   shoppingCartItems: IShoppingCartItem[];
   commodityItems: ICommodityItem[];
   amountTotal: number;
   isShowCart: boolean;
+  currentCommodity?: ICommodityItem;
 };
 
 type ActionType =
   | {
       type: "SELECTED_COMMODITY_ITEM";
-      commodityItem: ICommodityItem;
+      item: ICommodityItem | null;
     }
   | {
       type: "LOAD_COMMODITY_ITEMS";
@@ -23,13 +21,19 @@ type ActionType =
       type: "SWITCHSHOWCART";
     }
   | {
-      type: "SHOPPPING_CART_SET_QUANTITY";
-      _id: string;
-      quantity: number;
+      type: "SHOPPPING_CART_ITEM_INCREMENT_QUANTITY";
+      item: IShoppingCartItem;
+    }
+  | {
+      type: "SHOPPPING_CART_ITEM_DECREASE_QUANTITY";
+      item: IShoppingCartItem;
     }
   | {
       type: "SHOPPPING_DELETE_ITEM";
       _id: string;
+    }
+  | {
+      type: "SHOPPPING_CLEAR_ITEM";
     };
 
 type MixStateAndDispatch = {
@@ -49,18 +53,10 @@ export const CommodityListContext = Taro.createContext<MixStateAndDispatch>({
 export const reducer = (state: StateType, action: ActionType) => {
   switch (action.type) {
     case "SELECTED_COMMODITY_ITEM":
-      return (({ shoppingCartItems }) => {
-        const index = shoppingCartItems.findIndex(
-          item => item._id === action.commodityItem!._id
-        );
-        if (index > -1) {
-          shoppingCartItems[index].quantity++;
-        } else {
-          shoppingCartItems.push({ ...action.commodityItem!, quantity: 1 });
-        }
+      return (({}) => {
         return {
           ...state,
-          shoppingCartItems
+          currentCommodity: action.item
         };
       })(state);
     case "LOAD_COMMODITY_ITEMS":
@@ -73,12 +69,34 @@ export const reducer = (state: StateType, action: ActionType) => {
         ...state,
         isShowCart: !state.isShowCart
       };
-    case "SHOPPPING_CART_SET_QUANTITY":
+    case "SHOPPPING_CART_ITEM_INCREMENT_QUANTITY":
       return (({ shoppingCartItems }) => {
-        const index = shoppingCartItems.findIndex(
-          item => item._id == action._id
+        const shoppingCartItem = shoppingCartItems.find(
+          item => item.skuId == action.item.skuId
         );
-        shoppingCartItems[index].quantity = action.quantity;
+        if (shoppingCartItem) {
+          shoppingCartItem.quantity += action.item.quantity;
+        } else {
+          shoppingCartItems.push(action.item);
+        }
+
+        return {
+          ...state,
+          shoppingCartItems
+        };
+      })(state);
+    case "SHOPPPING_CART_ITEM_DECREASE_QUANTITY":
+      return (({ shoppingCartItems }) => {
+        const shoppingCartIndex = shoppingCartItems.findIndex(
+          item => item.skuId == action.item.skuId
+        );
+        if (shoppingCartIndex > -1) {
+          shoppingCartItems[shoppingCartIndex].quantity--;
+          if (shoppingCartItems[shoppingCartIndex].quantity == 0) {
+            shoppingCartItems.splice(shoppingCartIndex, 1);
+          }
+        }
+
         return {
           ...state,
           shoppingCartItems
@@ -95,6 +113,14 @@ export const reducer = (state: StateType, action: ActionType) => {
           shoppingCartItems
         };
       })(state);
+
+    case "SHOPPPING_CLEAR_ITEM":
+      return (() => {
+        return {
+          ...state,
+          shoppingCartItems: []
+        };
+      })();
     default:
       return state;
   }

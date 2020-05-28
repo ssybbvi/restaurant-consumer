@@ -1,11 +1,13 @@
 /* eslint-disable jsx-quotes */
 import { AtIcon } from "taro-ui";
-import Taro from "@tarojs/taro";
-import { View, Image, Checkbox } from "@tarojs/components";
+import Taro, { useContext } from "@tarojs/taro";
+import { View, Checkbox } from "@tarojs/components";
 import "./index.scss";
 import ShoppingCartItem from "./shoppingCartItem";
+import { CommodityListContext } from "../../reducer";
 
-const Index: Taro.FC = ({}) => {
+export default () => {
+  const { dispatch } = useContext(CommodityListContext);
   return (
     <View className="shopping-cart">
       <View className="shopping-cart-head">
@@ -19,7 +21,20 @@ const Index: Taro.FC = ({}) => {
           </View>
           <View className="shopping-cart-select-all">全选</View>
         </View>
-        <View className="shopping-cart-clear">
+        <View
+          className="shopping-cart-clear"
+          onClick={() => {
+            dispatch &&
+              dispatch({
+                type: "SHOPPPING_CLEAR_ITEM"
+              });
+
+            dispatch &&
+              dispatch({
+                type: "SWITCHSHOWCART"
+              });
+          }}
+        >
           <AtIcon value="bell" size="16" />
           清空购物车
         </View>
@@ -30,5 +45,3 @@ const Index: Taro.FC = ({}) => {
     </View>
   );
 };
-
-export default Index;

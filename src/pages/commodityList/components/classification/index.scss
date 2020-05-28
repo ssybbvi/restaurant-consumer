@@ -1,9 +1,9 @@
 .classification {
   height: 100%;
-  margin-right: 15px;
   overflow: scroll;
+  font-size: 28px;
 
-  .classification-item {
+  .item {
     height: 120px;
     background-color: #eee;
 
@@ -12,7 +12,7 @@
     align-items: center;
   }
 
-  .classification-current {
+  .current {
     border-left: 10px solid green;
     background-color: white;
     color: burlywood;
